@@ -3,7 +3,7 @@ class ContentsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   before_action :check_user, only: [:edit, :update, :destroy]
   def index
-    @contents = Content.all
+    @contents = Content.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 4)
   end
 
 
