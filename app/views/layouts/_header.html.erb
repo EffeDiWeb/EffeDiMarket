@@ -1,9 +1,11 @@
-<header class="navbar-fixed">
-<nav class="blue darken-4">
+<header>
+<div class="navbar-fixed">
+  <nav class="blue darken-4">
       <div class="container nav-wrapper">
         <%= link_to "EffeDiMarket", root_path, class:"brand-logo" %>
         <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
         <ul class="right hide-on-med-and-down">
+          <li><%= link_to 'Inserisci Contenuto', new_content_path %></li>
           <% if user_signed_in? %>
             <li><%= link_to "Log Out", destroy_user_session_path, method: :delete %></li>
           <% else %>
@@ -12,6 +14,7 @@
           <% end %>
         </ul>
         <ul class="side-nav" id="mobile-demo">
+          <li><%= link_to 'Inserisci Contenuto', new_content_path %></li>
           <% if user_signed_in? %>
             <li><%= link_to "Log Out", destroy_user_session_path, method: :delete %></li>
           <% else %>
@@ -20,5 +23,6 @@
           <% end %>
         </ul>
       </div>
-</nav>
+    </nav>
+</div>
 </header>
