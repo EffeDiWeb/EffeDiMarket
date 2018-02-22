@@ -5,24 +5,26 @@ body {
     min-height: 100vh;
     flex-direction: column;
   }
+  h1{
+    font-size: 3em;
+  }
   main {
     flex: 1 0 auto;
   }
-
   .btn-devise{
     width:100%;
   }
-
   .show_img{
     margin:0 auto;
     padding-right: 5%;
   }
-  
   .show_titolo{
     margin:0 auto;
     font-size: 3.4em;
 }
-
 .show_prezzo{
   font-size: 2em;
+}
+.btn-form{
+  width: 100%;
 }
