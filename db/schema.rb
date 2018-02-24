@@ -55,6 +55,7 @@ ActiveRecord::Schema.define(version: 20180222163021) do
     t.string "stripe_token"
     t.text "error"
     t.integer "amout"
+    t.integer "amount"
   end
 
   create_table "users", force: :cascade do |t|
