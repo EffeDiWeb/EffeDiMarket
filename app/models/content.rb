@@ -16,7 +16,7 @@ class Content < ApplicationRecord
     message: "Formato non supportato"
 
     validates :titolo, :descrizione, :prezzo, presence: true
-    validates :prezzo, numericality: { greater_than: 49 }
+    validates :prezzo, numericality: { greater_than: 0.49 }
     validates :cover, attachment_presence: true
     validates :allegato, attachment_presence: true
 
