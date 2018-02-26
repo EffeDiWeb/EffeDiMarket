@@ -98,6 +98,4 @@ Rails.application.configure do
     s3_region: ENV.fetch('AWS_REGION'),
     }
   }
-
-  config.action_controller.asset_host = "//#{ENV['FOG_DIRECTORY']}.s3.amazonaws.com"
 end
