@@ -15,3 +15,6 @@
 //= require materialize
 //= require materialize-sprockets
 //= require turbolinks
+$(document).ready(function(){
+      $('.parallax').parallax();
+    });
