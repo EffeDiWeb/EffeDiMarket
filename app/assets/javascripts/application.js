@@ -19,3 +19,7 @@
 $(document).ready(function(){
       $('.parallax').parallax();
     });
+
+    $(document).ready(function(){
+      $('ul.tabs').tabs();
+    });
