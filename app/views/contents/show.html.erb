@@ -1,32 +1,33 @@
+<div class="content-show">
+  <div class="row">
+    <div class="col l6">
+      <%= image_tag @content.cover.url, class: "responsive-img show_img" %>
+    </div>
+    <div class="col l6">
+      <h1 class="show_titolo">Titolo: <strong><%= @content.titolo %></strong></h1>
+      <h4 class="show_prezzo">Prezzo: <strong><%= number_to_currency(@content.prezzo) %></strong></h4>
+      <p>Venduto da <strong><%= @content.user.name %></strong></p>
+      <p>Descrizione: <strong><%= @content.descrizione %></strong></p>
 
-<div class="row">
-  <div class="col l6">
-    <%= image_tag @content.cover.url, class: "responsive-img show_img" %>
-  </div>
-  <div class="col l6">
-    <h1 class="show_titolo">Titolo: <strong><%= @content.titolo %></strong></h1>
-    <h4 class="show_prezzo">Prezzo: <strong><%= number_to_currency(@content.prezzo) %></strong></h4>
-    <p>Venduto da <strong><%= @content.user.name %></strong></p>
-    <p>Descrizione: <strong><%= @content.descrizione %></strong></p>
+      <% if current_user %>
+          <%= form_tag compra_path(slug: @content.slug) do %>
+            <script
+              src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+              data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+              data-amount="<%= (@content.prezzo* 100).floor %>"
+              data-name="EffeDiMarket"
+              data-description="<%= @content.titolo %>"
+              data-email="<%= current_user.email %>"
+              data-currency="eur"
+              data-locale="auto">
+            </script>
+            <% end %>
 
-    <% if current_user %>
-        <%= form_tag compra_path(slug: @content.slug) do %>
-          <script
-            src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-            data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-            data-amount="<%= (@content.prezzo* 100).floor %>"
-            data-name="EffeDiMarket"
-            data-description="<%= @content.titolo %>"
-            data-email="<%= current_user.email %>"
-            data-currency="eur"
-            data-locale="auto">
-          </script>
-          <% end %>
-
-    <% else %>
-      <p>Fai il <%= link_to "Log In", new_user_session_path %> o
-      <%= link_to "Registrati", new_user_registration_path %> per acquistare</p>
-    <% end %>
+      <% else %>
+        <p>Fai il <%= link_to "Log In", new_user_session_path %> o
+        <%= link_to "Registrati", new_user_registration_path %> per acquistare</p>
+      <% end %>
+    </div>
   </div>
 </div>
 

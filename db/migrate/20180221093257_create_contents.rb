@@ -1,7 +1,7 @@
 class CreateContents < ActiveRecord::Migration[5.1]
   def change
     create_table :contents do |t|
-      t.string :titolo
+      t.string :titolo, null: false, default: ""
       t.text :descrizione
       t.decimal :prezzo
 

@@ -13,7 +13,7 @@
 ActiveRecord::Schema.define(version: 20180222163021) do
 
   create_table "contents", force: :cascade do |t|
-    t.string "titolo"
+    t.string "titolo", default: "", null: false
     t.text "descrizione"
     t.decimal "prezzo"
     t.datetime "created_at", null: false
@@ -54,7 +54,6 @@ ActiveRecord::Schema.define(version: 20180222163021) do
     t.string "stripe_id"
     t.string "stripe_token"
     t.text "error"
-    t.integer "amout"
     t.integer "amount", default: 0, null: false
   end
 
